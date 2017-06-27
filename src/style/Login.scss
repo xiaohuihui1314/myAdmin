@@ -1,0 +1,16 @@
+.clear:after{
+  content: '';
+  display: block;
+  clear: both;
+}
+.login-wrap{
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.login-wrap input{
+  margin-bottom: 25px;
+}
+.login-wrap button{
+  width: 100%;
+}
