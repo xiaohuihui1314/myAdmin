@@ -29,6 +29,7 @@
     mounted(){
         this.userList();
         this.addressList();
+        this.getUserAddress();
     },
     methods: {
       async checkToken(){
@@ -51,6 +52,12 @@
       async addressList(){
         const addressFetch = () => this.fetch('get', '/addressList');
         let res = await  addressFetch();
+        console.log(res);
+
+      },
+      async getUserAddress(){
+        const getUserAddressFetch = () => this.fetch('get', '/getUserAddress?id='+JSON.parse(localStorage.getItem("token")).id);
+        let res = await  getUserAddressFetch();
         console.log(res);
 
       }
