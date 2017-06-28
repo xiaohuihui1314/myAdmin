@@ -6,6 +6,9 @@
         <router-link to="/address">地址</router-link>
       </li>
       <li>
+        <router-link to="/friends">好友</router-link>
+      </li>
+      <li>
         <router-link to="/upload">upload</router-link>
       </li>
       <li>
@@ -15,6 +18,12 @@
         <button type="button" @click="checkToken">验证token</button>
       </li>
     </ul>
+    <section>
+      <h2>用户列表</h2>
+      <div v-for="user in users" :key="user" class="text item">
+        {{'列表内容 ' + user.userName }}
+      </div>
+    </section>
   </div>
 </template>
 
@@ -23,21 +32,22 @@
     name: 'hello',
     data () {
       return {
-        msg: 'Welcome to You'
+        msg: 'Welcome to You',
+        users: []
       }
     },
     mounted(){
-        this.userList();
-        this.addressList();
-        this.getUserAddress();
+      this.userList();
+      this.addressList();
+      this.getUserAddress();
     },
     methods: {
       async checkToken(){
-        var checkData = fetch('http://localhost:3000/checkToken',{
+        var checkData = fetch('http://localhost:3000/checkToken', {
           headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            "Authorization":localStorage.getItem("token")
+            "Authorization": localStorage.getItem("token")
           }
         });
         let res = await checkData;
@@ -46,6 +56,7 @@
       async userList(){
         const userFetch = () => this.fetch('get', '/userList');
         let res = await  userFetch();
+        this.users = res;
         console.log(res);
 
       },
@@ -56,7 +67,7 @@
 
       },
       async getUserAddress(){
-        const getUserAddressFetch = () => this.fetch('get', '/getUserAddress?id='+JSON.parse(localStorage.getItem("token")).id);
+        const getUserAddressFetch = () => this.fetch('get', '/getUserAddress?id=' + JSON.parse(localStorage.getItem("token")).id);
         let res = await  getUserAddressFetch();
         console.log(res);
 
@@ -84,5 +95,16 @@
 
   a {
     color: #42b983;
+  }
+  .text {
+    font-size: 14px;
+  }
+
+  .item {
+    padding: 18px 0;
+  }
+
+  .box-card {
+    width: 480px;
   }
 </style>

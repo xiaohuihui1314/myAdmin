@@ -4,8 +4,8 @@
     <div class="login-wrap">
       <el-input v-model="user.userName" placeholder="请输入用户名"></el-input>
       <el-input v-model="user.passWord" placeholder="请输入密码"></el-input>
-      <el-button type="primary" @click="login">1</el-button>
-      <!--<router-link to="/register">注册</router-link>-->
+      <el-button type="primary" @click="login">登录</el-button>
+      <router-link to="/register">注册</router-link>
     </div>
   </section>
 </template>

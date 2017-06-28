@@ -46,5 +46,12 @@ export default new Router({
         require(['@/components/Address'], resolve);
       },
     }
+    , {
+      path: '/friends',
+      name: 'friends',
+      component: function (resolve) {
+        require(['@/components/Friends'], resolve);
+      },
+    }
   ]
 })

@@ -4,7 +4,7 @@
     <div class="login-wrap">
       <el-input v-model="user.userName" placeholder="请输入内容"></el-input>
       <el-input v-model="user.passWord" placeholder="请输入内容"></el-input>
-      <el-button type="primary" @click="login">注册</el-button>
+      <el-button type="primary" @click="register">注册</el-button>
       <router-link to="/">登录</router-link>
     </div>
   </section>
@@ -23,8 +23,8 @@
       }
     },
     methods: {
-      async login(){
-        const startRegister = (dataObj) => fetch ('POST', '/register', dataObj);
+      async register(){
+        const startRegister = (dataObj) => this.fetch ('POST', '/register', dataObj);
         let res = await  startRegister(this.user);
         if (res.userName) {
           this.$router.push({path: '/'});
