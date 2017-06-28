@@ -67,7 +67,7 @@
           console.log(this.formInline)
         const checkLogin = (dataObj) => this.fetch('POST', '/createAddress', dataObj);
         const addressObj=this.unbound(this.formInline);
-        addressObj.user=JSON.parse(localStorage.getItem("token")).id;
+        addressObj.userId=JSON.parse(localStorage.getItem("token")).id;
         let res = await  checkLogin(addressObj);
         console.log(res);
 //        if (res.id) {

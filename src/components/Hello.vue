@@ -40,6 +40,7 @@
       this.userList();
       this.addressList();
       this.getUserAddress();
+      this.getAllFriend();
     },
     methods: {
       async checkToken(){
@@ -69,6 +70,12 @@
       async getUserAddress(){
         const getUserAddressFetch = () => this.fetch('get', '/getUserAddress?id=' + JSON.parse(localStorage.getItem("token")).id);
         let res = await  getUserAddressFetch();
+        console.log(res);
+
+      },
+      async getAllFriend(){
+        const getAllFriendFetch = () => this.fetch('get', '/getAllFriend');
+        let res = await  getAllFriendFetch();
         console.log(res);
 
       }
