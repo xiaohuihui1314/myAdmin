@@ -7,7 +7,6 @@
 </template>
 
 <script>
-  import header from './components/Header'
 
   export default {
     name: 'app',
@@ -18,9 +17,6 @@
           passWord: "11"
         }
       }
-    },
-    components: {
-      'v-header': header
     }
   }
 </script>

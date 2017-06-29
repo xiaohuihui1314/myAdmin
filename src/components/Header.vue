@@ -24,7 +24,6 @@
 <style>
   #header{
     line-height: 60px;
-    margin-bottom: 25px;
     background-color: #8ac9ff;
   }
 </style>

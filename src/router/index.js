@@ -19,10 +19,10 @@ export default new Router({
         require(['@/components/Register'], resolve);
       },
     }, {
-      path: '/hello',
-      name: 'hello',
+      path: '/index',
+      name: 'index',
       component: function (resolve) {
-        require(['@/components/Hello'], resolve);
+        require(['@/components/Index'], resolve);
       },
     }
     , {
@@ -51,6 +51,13 @@ export default new Router({
       name: 'friends',
       component: function (resolve) {
         require(['@/components/Friends'], resolve);
+      },
+    }
+    , {
+      path: '/userDetails',
+      name: 'userDetails',
+      component: function (resolve) {
+        require(['@/components/user/UserDetails'], resolve);
       },
     }
   ]

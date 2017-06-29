@@ -42,10 +42,10 @@
             user:JSON.parse(localStorage.getItem("token")).id,
             friend:row._id
           };
-          console.log(addObj)
+          console.log(addObj);
         const addFriendFetch = (addObj) =>this.fetch('post', '/addFriend',addObj);
         let res = await  addFriendFetch(addObj);
-        this.tableData = res;
+//        this.tableData = res;
 
       },
       async userList(){

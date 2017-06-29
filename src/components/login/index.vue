@@ -13,93 +13,16 @@
   @import '../../style/Login.scss';
 </style>
 <script>
-  import {mapGetters, mapActions} from 'vuex'
   export default{
     data() {
       return {
-        oldObj: {
-          a: 1,
-          b: 2,
-          c: 3,
-          d: {
-            a: 1,
-            b: 2,
-            c11: {
-              a: 1,
-              b11: {
-                a11: 1
-              }
-            }
-          },
-          e: [1, 2, 3, {a: 100}]
-        },
         user: {
           userName: null,
           passWord: null
-        },
-        json: [
-          {
-            name: 1,
-            array: [
-              {
-                name: 1,
-                array: []
-              },
-              {
-                name: 2,
-                array: []
-              },
-              {
-                name: 3,
-                array: []
-              }
-            ]
-          },
-          {
-            name: 2,
-            array: [
-              {
-                name: 1,
-                array: []
-              },
-              {
-                name: 2,
-                array: []
-              },
-              {
-                name: 3,
-                array: []
-              }
-            ]
-          },
-          {
-            name: 3,
-            array: [
-              {
-                name: 1,
-                array: []
-              },
-              {
-                name: 2,
-                array: []
-              },
-              {
-                name: 3,
-                array: []
-              }
-            ]
-          }
-        ]
+        }
       }
     },
-    computed: {
-      ...mapGetters({
-        headerData: 'headerData'
-      })
-    },
     mounted(){
-      this.index = this.headerData.index;
-      this.oldObj.a = 999;
       (async() => {
         let bb = () => this.asyncLocalStorage();
         let res = await bb();
@@ -109,12 +32,6 @@
         }
       })();
     },
-    watch: {
-      'headerData.index'(val) {
-        console.log(this.headerData);
-        console.log(val)
-      }
-    },
     methods: {
       async login(){
         const checkLogin = (dataObj) => this.fetch('POST', '/login', dataObj);
@@ -122,7 +39,7 @@
         console.log(res);
         if (res.id) {
           localStorage.setItem("token", JSON.stringify(res));
-          this.$router.push({path: 'hello'});
+          this.$router.push({path: 'index'});
         }
       }
     }
