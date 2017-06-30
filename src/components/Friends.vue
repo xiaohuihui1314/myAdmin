@@ -13,7 +13,13 @@
       <template scope="scope">
         <el-button
           size="small"
+          type="success"
           @click="addFriend( scope.row)">加好友
+        </el-button>
+        <el-button
+          size="small"
+          type="danger"
+          @click="deleteFriend( scope.row)">删除好友
         </el-button>
       </template>
     </el-table-column>
@@ -45,6 +51,19 @@
           console.log(addObj);
         const addFriendFetch = (addObj) =>this.fetch('post', '/addFriend',addObj);
         let res = await  addFriendFetch(addObj);
+        console.log(res);
+//        this.tableData = res;
+
+      },
+      async deleteFriend(row){
+          const addObj={
+            user:JSON.parse(localStorage.getItem("token")).id,
+            friend:row._id
+          };
+          console.log(addObj);
+        const addFriendFetch = (addObj) =>this.fetch('post', '/deleteFriend',addObj);
+        let res = await  addFriendFetch(addObj);
+        console.log(res);
 //        this.tableData = res;
 
       },

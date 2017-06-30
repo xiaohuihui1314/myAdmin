@@ -11,15 +11,15 @@
 </template>
 <style lang="scss">
   @import '../../style/Login.scss';
+  body{
+    width: 100%;
+  }
 </style>
 <script>
   export default{
     data() {
       return {
-        user: {
-          userName: null,
-          passWord: null
-        }
+        seen:true
       }
     },
     mounted(){

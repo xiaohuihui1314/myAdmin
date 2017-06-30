@@ -6,11 +6,9 @@
         <h3>{{ item }}</h3>
       </el-carousel-item>
     </el-carousel>
-
-
     <el-row>
       <el-col class="car-col"
-              :xs="8" :sm="8"  :lg="6"
+              :xs="24" :sm="8" :lg="6"
               v-for="(card, index) in cardList"
               :key="index">
         <div class="car-col" :style="{backgroundImage: 'url(' + card.img + ')',padding: '0px' }">
@@ -63,7 +61,7 @@
     mounted(){
       this.userList();
       this.addressList();
-      this.getUserAddress();
+//      this.getUserAddress();
       this.getAllFriend();
     },
     methods: {
@@ -157,7 +155,7 @@
     right: 0;
     line-height: 38px;
     background-color: rgba(0, 0, 0, 0.48);
-    font-size:18x;
+    font-size: 18x;
     color: #fff;
   }
 

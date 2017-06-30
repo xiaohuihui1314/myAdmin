@@ -5,13 +5,13 @@ Vue.use(Router);
 
 export default new Router({
   routes: [
-    {
-      path: '/',
-      name: 'login',
-      component: function (resolve) {
-        require(['@/components/Login'], resolve);
-      },
-    }
+    // {
+    //   path: '/',
+    //   name: 'login',
+    //   component: function (resolve) {
+    //     require(['@/components/Login'], resolve);
+    //   },
+    // }
     , {
       path: '/register',
       name: 'register',
@@ -19,7 +19,7 @@ export default new Router({
         require(['@/components/Register'], resolve);
       },
     }, {
-      path: '/index',
+      path: '/',
       name: 'index',
       component: function (resolve) {
         require(['@/components/Index'], resolve);
